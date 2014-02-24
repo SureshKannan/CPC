@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CPC Registration</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <script>
+  	$(function(){
+    $(".popup").live('click', function(e){
+        e.preventDefault();
+        $('<div/>', {'class':'myDlgClass', 'id':'link-'+($(this).index()+3)})
+        .html($('<iframe/>', {
+            'src' : $(this).attr('href'),
+            'style' :'width:100%; height:100%;border:none;'
+        })).appendTo('body')
+        .dialog({
+            'title' : $(this).text(),
+            'width' : 484,
+            'height' : 590,
+            'modal' : true,
+            buttons: [ { 
+                    text: "Close",
+                    click: function() { $( this ).dialog( "close" ); } 
+                } ]
+        });
+    });
+});
+// function openDialog(){
+	// $("#dialog").dialog({modal:true})
+// }
+
+    // $(document).ready(function() {  
+// 
+        // $("#dialog").load(this.getTrigger().attr("href")).dialog({
+            // autoOpen: false,
+            // width: 400,
+            // modal: true
+        // });     
+        // $(".test").click(function(){$( "#dialog" ).dialog( "open" );});
+// });
+  	
+
+  </script>
+  
+</head>
+<body>
+<header>
+	<ul>
+		<li class="" id="white_logo"><%= image_tag "white_logo.png" %> </li>
+		<li><a href="AboutUs">About Us</a></li>
+		<li> <a href="contactus">Contact Us</a></li>
+		<li><a href="sign_in">Login</a></li>
+		<li><a href="help">Help</a></li>
+	</ul>
+	
+ 
+</header>
+<section id="dialog"> </section>
+<section id="container">
+	<%= yield %>
+	
+</section>
+
+
+</body>
+</html>
