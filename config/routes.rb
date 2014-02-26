@@ -1,9 +1,10 @@
 CPC::Application.routes.draw do
  
-  devise_for :users, :controllers => {:registrations => "registrations", :sessions => "sessions", :passwords => "passwords"}
+  devise_for :users, :controllers => {:registrations => "registrations", :sessions => "sessions", 
+    :passwords => "passwords", :confirmations => "confirmations"}
   get 'registration/signin'
-  get 'registration/term'
-  get 'registration/policy'
+  get 'registrations/term'
+  get 'registrations/policy'
  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
