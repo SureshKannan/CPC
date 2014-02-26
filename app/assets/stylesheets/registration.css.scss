@@ -1,11 +1,29 @@
 // Place all the styles related to the registration controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body, header{
+body, header, p{
   margin: 0px;
   padding: 0px;
   border: 0px;
+  font-family:Century Gothic
   
+}
+
+input{height: 25px;}
+.header{
+  font-size: 20px;
+}
+
+.regular{
+  font-size: 11px;
+  color: #FFF;
+}
+
+.regularBold{
+   font-size: 11px;
+  color: #FFF;
+  font-weight: bold;
+  text-decoration: underline;
 }
 #container{
   
@@ -34,25 +52,31 @@ body, header{
 .middle{
   vertical-align: middle;
 }
+.field{
+ margin-bottom: 10px;
+}
 
-body{
- 
-    background-image: image-url('background/sunglasses_bg.png');
+#mainContainer{
+  max-width:1280px;
+  margin: 0 auto;
+  background-image: image-url('background/ray_ban_ad.jpg');
+  height: 680px;
+ // border: 1px solid red;
   
 }
 header{
   height: 50px;
-  background-image: image-url('header/login_header1.png');
+  background-image: image-url('header/header_bar.png');
  
 }
-header ul{
+ ul{
   margin: 0px;
   padding: 0px;
   list-style-type: none;
   
  
 }
-header ul li {
+ ul li {
   display: inline;
 }
 header ul li a {
@@ -60,7 +84,8 @@ header ul li a {
 }
 
 header li:first-child{
- margin-left: 160px;
+ margin-left: 167px;
+
 }
 
 header li:nth-child(2){
@@ -79,38 +104,59 @@ header li:nth-child(5){
  margin-left: 60px;
 }
 #white_logo{
-
+padding-top: 20px;
 }
+// ************************     Sign in page sessions/new.html.erb  *************************** 
 #signup{
-  width:494px;
-  height:321px;
-  background-image: url('background/black_floating_bg.png');
+  width:492px;
+  height:288px;
+  background-image: url('background/black_bg.png');
   margin: auto;
   margin-top: 125px;
+  color: #FFF;   
   //border: 1px solid blue;
 }
+#signup_all{
+ width:84%;
+ margin: 0 auto;
+// border: 1px solid red;
+}
+#signup_logo{
+   background-image: url('logo/green_mouse.gif');
+   background-repeat: no-repeat;   
+   margin-top: 27px;
+   padding-top: 10px;
+}
+#signup_logoText{
+  margin-left: 30px;
+  margin-top: 5px;
+  //border: 1px solid blue;
+  height: 30px;
+}
+
 #signup_field{
   width: 100%;
-  height: 100%;
-  padding-top: 40px;
-  padding-left: 70px;
-  //border: 1px solid black;
-  // text-align: center;
+  height: 180px;
+margin-top: 20px;
+//border: 1px solid blue;
+clear: both;
 }
 #signup_text{
-  width: 100%;
+  width: 56%;
   //border: 1px solid green;
-  clear: both;
- 
+  
+ float: left;
 }
-.field{
+ // #signup_text p:first-child{ margin-top: 10px;}
 
- margin-bottom: 10px;
-}
 #signup_buttons{
-  //border: 1px dotted red;
-  height:100px;
+ // border: 1px dotted red;
+  width: 44%;
+   
+  float: right;
 }
+#signup_buttons p:first-child{ margin-bottom: 10px;}
+#signup_buttons p:nth-child(3){ margin-bottom: 10px;}
 #signup_check{
   //border: 1px solid red;
   width:45%;
@@ -127,6 +173,40 @@ header li:nth-child(5){
   float: right;
   margin-right: 154px;
    //border: 1px solid red;
+}
+
+#sign_chk{
+   font-size: 11px;
+  color: white;
+}
+
+// ************************     Registration page registrations/new.html.erb *************************
+#reg_all{
+   width:70%;
+ margin: 0 auto;
+   padding-top: 30px;
+  
+ //border: 1px solid red;
+}
+#reg_text{
+  margin: 0 auto;
+}
+#reg_buttons{
+  width:100%;
+
+ // border: 1px solid green;
+}
+#reg_check{
+  width:50%;
+  float: left;
+  
+ // border: 1px solid #0099FF;
+}
+
+#reg_btn{
+  width: 29%;
+  float: right;
+ //border: 1px solid grey;
 }
 #dialog{
   

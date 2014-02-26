@@ -1,26 +1,91 @@
 <!-- <h2>Sign in</h2> -->
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <section id="signup" >
-	<section id="signup_field">
-		<section id="signup_text">
-  
-  <!-- <div><%= f.label :email %><br /> -->
-<%= f.text_field :signin, :autofocus => true, :placeholder => 'email OR username',class: 'field',:required => 'required', size: 50 %>
-  <!-- <div><%= f.label :password %><br /> -->
-  <%= f.password_field :password, :placeholder => 'password',class: 'field',:required => 'required', size: 50 %></div>
+<section id="signup" >
+	<section id="signup_all">
+		<section id="signup_logo">
+
+			<section id="signup_logoText">
+				<p class="header">
+					Welcome!
+				</p>
+			</section>
+
+			<p class="regular">
+				Shop the greatest deal according to your interests or
+				create a CPC store and directly target your customers. The mall of world is at your finger tips. Click away
+			</p>
+
+		</section>
+		<section id="signup_field"> 
+			<section id="signup_text">
+				<ul>
+					<li>
+
+						
+						<%= f.text_field :signin, :autofocus => true, :placeholder => 'email OR username',class: 'field',:required => 'required', size: 30 %>
+					</li>
+					<li>
+						
+						<%= f.password_field :password, :placeholder => 'password',class: 'field',:required => 'required', size: 30 %></div>
+
+					</li>
+					<li>
+						<ul>
+							<li>
+								<% if devise_mapping.rememberable? -%>
+
+								<%= f.check_box :remember_me %> <%= f.label :Keep_me_logged_in, :class => 'regular' %>
+
+								<% end -%>
+							</li>
+							<li>
+								
+								<input type="image" src="/assets/buttons/login_bttn/active_login_bttn.png" alt="Submit">
+							</li>
+						</ul>
+					</li>
+					<% end %>
+					<li>
+						<p class="regular">
+							Fergot <a class="regularBold" href="#">User name</a> OR
+							<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+							<%= link_to "password", new_password_path(resource_name), :class => 'regularBold' %>
+							<br />
+							<% end -%>
+						</p>
+					</li>
+
+				</ul>
+
+			</section>
+
+			<section id="signup_buttons">
+				<p class="regular">
+					Enjoy all the benefits of CPC and become a member
+				</p>
+				<p class="field">
+					<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+					<%= link_to image_tag("/assets/buttons/freesignup_bttn/active_freesignup_bttn.png"), new_registration_path(resource_name) %>
+					<br />
+					<% end -%>
+				</p>
+
+
+				<p class="regular">
+					If did not receive conformation email, please click
+					<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+					<%= link_to "Resend", new_confirmation_path(resource_name), :class => 'regularBold'  %>
+					
+					
+					<br />
+					<% end -%>
+
+				</p>
+				<p>
+					<a  href="#"><img src="/assets/buttons/guest_bttn/active_guest_bttn.png" /></a>
+				</p>
+			</section>
+		</section>  
+	</section>
 </section>
-<section id="signup_buttons">
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
-
-  <div><%= f.submit "Sign in" %></div>
-
-  
-<% end %>
-
-<%= render "devise/shared/links" %>
-</section>
-  </section>
-  </section>
