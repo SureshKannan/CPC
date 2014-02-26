@@ -1,5 +1,5 @@
 class SessionsController < Devise::SessionsController
-  layout 'registration'
+  layout 'registrations'
   
  
   

@@ -1,6 +1,6 @@
 CPC::Application.routes.draw do
  
-  devise_for :users, :controllers => {:registrations => "registrations", :sessions => "sessions"}
+  devise_for :users, :controllers => {:registrations => "registrations", :sessions => "sessions", :passwords => "passwords"}
   get 'registration/signin'
   get 'registration/term'
   get 'registration/policy'
