@@ -3,7 +3,7 @@ class RegistrationsController < Devise::RegistrationsController
   
   def term
     render :layout => 'popup'
-    render 'registration/term'
+    # render 'registrations/term'
   end
   
   def policy

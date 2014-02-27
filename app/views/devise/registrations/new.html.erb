@@ -30,10 +30,10 @@
 			<section id="reg_buttons">
 				<section id="reg_check" class="regular">
 					<p>
-						<%= check_box_tag(:terms,nil,true)%> <a href="/registrations/term">Terms and Conditions</a>
+						<%= check_box_tag(:terms,nil,true, class: 'regular, popup')%> <a class="check" href="/registrations/term">Terms and Conditions</a>
 					</p>
 					<p>
-						<%= check_box_tag(:policy,nil,true, class: 'regular, popup')%> <a href="/registrations/policy"> Agree to Privacy Policy</a>
+						<%= check_box_tag(:policy,nil,true, class: 'regular, popup')%> <a class="check" href="/registrations/policy"> Agree to Privacy Policy</a>
 					</p>
 				</section>
 				<section id="reg_btn">

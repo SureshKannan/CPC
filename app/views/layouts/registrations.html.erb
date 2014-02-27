@@ -5,10 +5,31 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+
+  
+</head>
+<body>
+	<section id="mainContainer">
+<header>
+	<ul>
+		<li class="" id="white_logo"><%= image_tag "logo/white_logo.gif" %> </li>
+		
+	</ul>
+	
+ 
+</header>
+<section id="dialog"> </section>
+
+<section id="container">
+	<%= yield %>
+	
+</section>
+</section>
   <script>
   	$(function(){
-    $(".popup").live('click', function(e){
+        $('.check').on('click', function(e){
         e.preventDefault();
+         alert("Popup")
         $('<div/>', {'class':'myDlgClass', 'id':'link-'+($(this).index()+3)})
         .html($('<iframe/>', {
             'src' : $(this).attr('href'),
@@ -16,6 +37,7 @@
         })).appendTo('body')
         .dialog({
             'title' : $(this).text(),
+
             'width' : 484,
             'height' : 590,
             'modal' : true,
@@ -42,25 +64,5 @@
   	
 
   </script>
-  
-</head>
-<body>
-	<section id="mainContainer">
-<header>
-	<ul>
-		<li class="" id="white_logo"><%= image_tag "logo/white_logo.gif" %> </li>
-		
-	</ul>
-	
- 
-</header>
-<section id="dialog"> </section>
-
-<section id="container">
-	<%= yield %>
-	
-</section>
-</section>
-
 </body>
 </html>
