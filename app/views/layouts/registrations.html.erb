@@ -1,68 +1,91 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>CPC Registration</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+	<head>
+		<title>CPC Registration</title>
+		<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+		<%= csrf_meta_tags %>
 
-  
-</head>
-<body>
-	<section id="mainContainer">
-<header>
-	<ul>
-		<li class="" id="white_logo"><%= image_tag "logo/white_logo.gif" %> </li>
-		
-	</ul>
-	
- 
-</header>
-<section id="dialog"> </section>
+	</head>
+	<body>
+		<section id="mainContainer">
+			<header>
+				<ul>
+					<li class="" id="white_logo">
+						<%= image_tag "logo/white_logo.gif" %>
+					</li>
 
-<section id="container">
-	<%= yield %>
-	
-</section>
-</section>
-  <script>
-  	$(function(){
-        $('.check').on('click', function(e){
-        e.preventDefault();
-         alert("Popup")
-        $('<div/>', {'class':'myDlgClass', 'id':'link-'+($(this).index()+3)})
-        .html($('<iframe/>', {
-            'src' : $(this).attr('href'),
-            'style' :'width:100%; height:100%;border:none;'
-        })).appendTo('body')
-        .dialog({
-            'title' : $(this).text(),
+				</ul>
 
-            'width' : 484,
-            'height' : 590,
-            'modal' : true,
-            buttons: [ { 
-                    text: "Close",
-                    click: function() { $( this ).dialog( "close" ); } 
-                } ]
-        });
-    });
-});
-// function openDialog(){
-	// $("#dialog").dialog({modal:true})
-// }
+			</header>
+			<section id="dialog"></section>
 
-    // $(document).ready(function() {  
-// 
-        // $("#dialog").load(this.getTrigger().attr("href")).dialog({
-            // autoOpen: false,
-            // width: 400,
-            // modal: true
-        // });     
-        // $(".test").click(function(){$( "#dialog" ).dialog( "open" );});
-// });
-  	
+			<section id="container">
+				<%= yield %>
 
-  </script>
-</body>
+			</section>
+		</section>
+		<script>
+			// $(function(){
+			// $("#dialog").dialog({
+			// autoOpen: false,
+			// modal: true,
+			// src: $(this).attr('href')
+			//
+			// });
+			// $(".check").on("click", function(){
+			// alert("Dialog");
+			// alert($(this).attr('href'));
+			// $("#dialog").dialog();
+			// });
+			// });
+
+			$(function()
+			{
+				$('.check').on('click', function(e)
+				{
+					e.preventDefault();
+					alert("Popup")
+					$('<div/>',
+					{
+						'class' : 'myDlgClass',
+						'id' : 'link-' + ($(this).index() + 3)
+					}).html($('<iframe/>',
+					{
+						'src' : $(this).attr('href'),
+						'style' : 'width:100%; height:100%;border:none;'
+					})).appendTo('body').dialog(
+					{
+						// // 'title' : $(this).text(),
+						'dialogClass' : "no_title",
+						'width' : 484,
+						'height' : 590,
+						'modal' : true,
+						buttons : [
+						{
+							text : "Close",
+							click : function()
+							{
+								$(this).dialog("close");
+							}
+						}]
+					});
+				});
+			});
+			// function openDialog(){
+			// $("#dialog").dialog({modal:true})
+			// }
+
+			// $(document).ready(function() {
+			//
+			// $("#dialog").load(this.getTrigger().attr("href")).dialog({
+			// autoOpen: false,
+			// width: 400,
+			// modal: true
+			// });
+			// $(".test").click(function(){$( "#dialog" ).dialog( "open" );});
+			// });
+
+		</script>
+	</body>
 </html>

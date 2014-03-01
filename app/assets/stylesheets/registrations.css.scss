@@ -242,8 +242,13 @@ clear: both;
   width:484px;
   height:600px;
   margin: auto;
-  background-image: url('background/grey_floating_bg.png');
+  background-image: url('background/full_grey_texture_bg.jpg');
 }
+
+.no_title .ui-dialog-titlebar{
+  display: none;
+}
+// .no_title .ui-widget-window{display: none;}
 // .ui-widget-header {
     // background: red !important;
     // border: none
