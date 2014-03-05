@@ -31,6 +31,7 @@
 		</script>
 	<body>
 		<section id="mainContainer">
+			
 			<header>
 				<ul>
 					<li >
@@ -40,15 +41,17 @@
 				</ul>
 
 			</header>
-			<section id="dialog"></section>
+			
 
 			<section id="container">
+				<section class="collision"></section>
 				<%= yield %>
 
 			</section>
+			
 			<footer>
 				<section id="footer_img">
-					<section id="collision"></section>
+					<section class="collision"></section>
 					<section id="footer_arrow" >
 						<a id="upArrow" href="javascript:showFooter()"> <img src="/assets/footer/ftr_arrow_up.gif"  /></a>
 						<a id="downArrow" href="javascript:hideFooter()"> <img src="/assets/footer/ftr_arrow_down.gif"  /></a>
@@ -106,16 +109,16 @@
 								Keep in touch with click price.com
 							</p>
 							<form>
-								<input type="text" placeholder="email" />
-								<input type="button" />
-								Sign up
+								<input type="text" placeholder="email"  size="40"/>
+									<input type="image" src="/assets/footer/active_signup_bttn.png" alt="Submit">
+								
 							</form>
 						</section>
 					</section>
 				</section>
 			</footer>
 		</section>
-		</section>
+		
 		<script>
 			// $(function(){
 			// $("#dialog").dialog({

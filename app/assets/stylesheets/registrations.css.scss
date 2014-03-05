@@ -30,7 +30,7 @@ input{
   margin: 0;
   vertical-align: middle;
   }
-  #collision{height:1px;}
+  .collision{height:1px;}
 .header{
   font-size: 20px;
 }
@@ -69,9 +69,7 @@ a:active {
   font-weight: bold;
   text-decoration: underline;
 }
-#container{
-  
-}
+
 .right{
   position: absolute;
   float: right;
@@ -104,15 +102,16 @@ a:active {
   max-width:1280px;
   margin: 0 auto;
  
- // border: 1px solid red;
+  //border: 1px solid red;
   
 }
 #container{
-   background-image: image-url('background/ray_ban_ad.jpg');
+  background-image: image-url('background/ray_ban_ad.jpg');
   height: 680px;
+ //border: 1px solid red;
 }
 header{
-  height: 58px;
+  height: 50px;
   background-image: image-url('header/header_bar.png');
  //border: 1px solid red;
 }
@@ -252,10 +251,7 @@ margin-top: 8px;
   float: right;
  //border: 1px solid grey;
 }
-#dialog{
-  
-  
-}
+
 .myDlgClass{
   height: 500px;
 }
@@ -287,18 +283,18 @@ margin-top: 8px;
 
 // ************************     footer  *************************** ************************************************
 footer{
-border: 1px solid red;
+//border: 1px solid blue;
+
 }
 
 .footer_up{
   margin-top: -160px;
-    opacity:.8;
-filter:alpha(opacity=40); /* For IE8 and earlier */
+  //background-color: yellow;
+
 }
 
 #footer_img{
-  height: 32px;
- // margin-top: 597px;
+  height: 30px;
   background-image: url('footer/footer_closed.png');
   //border: 1px solid green;
  
@@ -307,12 +303,8 @@ filter:alpha(opacity=40); /* For IE8 and earlier */
   height:8px;
   width: 16px;
   position: relative;
-  //z-index: 2;
-  //border:1px solid red;
-  //background-color: #FFF;
-   //background-image: url('footer/ftr_arrow_down.gif');
-   margin: 0 auto;
-   margin-top: 6px;
+  margin: 0px auto;
+  margin-top: 6px;
    
 }
 
@@ -330,12 +322,12 @@ filter:alpha(opacity=40); /* For IE8 and earlier */
   height: 100px;
   margin: 0 auto;
  // border: 1px solid green;
+ //background-color: grey;
 }
 #footer_links{
   width:50%;
- // background-color: grey;
- // border: 1px solid red;
   float: left;
+ // border: 1px solid red;  
 }
 
 #footer_links ul{
@@ -376,3 +368,9 @@ display: table-row;
   margin: 0 auto;
   //border: 1px solid blue;
 }
+
+#footer_emailForm p{
+  padding-top: 15px;
+}
+
+#footer_emailForm form{ padding-top: 4px;}
