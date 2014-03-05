@@ -7,48 +7,57 @@
 		<%= csrf_meta_tags %>
 
 	</head>
-			<script>
-		function showFooter(){
+	<script>
+		function showFooter()
+		{
 			//alert("Show Footer");
 			$('footer').addClass('footer_up');
 			$('#footer_hide').show();
 			$('#upArrow').hide();
 			$('#downArrow').show();
-			
+
 		}
-			
-		function hideFooter(){
+
+		function hideFooter()
+		{
 			//alert("Hide Footer");
 			//$('footer').addClass('footer_down');
 			$('footer').removeClass('footer_up');
 			$('#footer_hide').hide();
 			$('#upArrow').show();
 			$('#downArrow').hide();
-			
-			
-		}	
-			
-		</script>
+
+		}
+
+	</script>
 	<body>
 		<section id="mainContainer">
-			
+
 			<header>
 				<ul>
 					<li >
-						<%= image_tag "logo/white_logo.gif", :class => 'white_logo' %>
+						<%= image_tag "logo/white_logo.png", :class => 'white_logo' %>
 					</li>
 
 				</ul>
 
 			</header>
-			
 
 			<section id="container">
+				<section id="bg_ad_bttn">
+					<a href="#"> <img src="/assets/buttons/bg_ad_bttn/hover_bg_ad_bttn.png"/></a>
+				</section>
+				<section id="ad_bttn">
+					<a href="#"> <img src="/assets/buttons/ad_bttn/hover_ad_bttn.png"/></a>
+				</section>
+				<section id="partner_bttn">
+					<a href="#"> <img src="/assets/buttons/partner_bttn/hover_partner_bttn.png"/></a>
+				</section>
 				<section class="collision"></section>
 				<%= yield %>
 
 			</section>
-			
+
 			<footer>
 				<section id="footer_img">
 					<section class="collision"></section>
@@ -57,6 +66,7 @@
 						<a id="downArrow" href="javascript:hideFooter()"> <img src="/assets/footer/ftr_arrow_down.gif"  /></a>
 					</section>
 				</section>
+				<section id="footer_background">
 				<section id="footer_hide">
 					<section id="footer_links">
 						<ul>
@@ -110,15 +120,16 @@
 							</p>
 							<form>
 								<input type="text" placeholder="email"  size="40"/>
-									<input type="image" src="/assets/footer/active_signup_bttn.png" alt="Submit">
-								
+								<input type="image" src="/assets/footer/active_signup_bttn.png" alt="Submit">
+
 							</form>
 						</section>
+					</section>
 					</section>
 				</section>
 			</footer>
 		</section>
-		
+
 		<script>
 			// $(function(){
 			// $("#dialog").dialog({

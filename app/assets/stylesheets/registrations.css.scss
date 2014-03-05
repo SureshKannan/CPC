@@ -19,11 +19,13 @@ body, header, p{
   margin: 0px;
   padding: 0px;
   border: 0px;
-  font-family:Century Gothic
+  font-family:Century Gothic;
    
  
 }
-
+body{
+  background-color:#313536;
+}
 input{
   height: 25px;
   padding: 0;
@@ -105,11 +107,7 @@ a:active {
   //border: 1px solid red;
   
 }
-#container{
-  background-image: image-url('background/ray_ban_ad.jpg');
-  height: 680px;
- //border: 1px solid red;
-}
+
 header{
   height: 50px;
   background-image: image-url('header/header_bar.png');
@@ -153,13 +151,46 @@ header li:nth-child(5){
 margin-top: 8px;
 //border: 1px solid red;
 }
+
+#container{
+  background-image: image-url('background/ray_ban_ad1.jpg');
+  height: 510px;
+ //border: 1px solid red;
+}
+
+#bg_ad_bttn{
+  position: absolute;
+  //height: 80px;
+  //width: 80px;
+  margin: 30px 0px 0px 30px;
+  //margin-right: 30px;
+  //border: 1px solid green;
+}
+#ad_bttn{
+  position: absolute;
+  //height: 140px;
+  //width: 141px;
+  margin: 125px 0px 0px 890px;
+  //margin-right: 30px;
+  //border: 1px solid green;
+}
+
+#partner_bttn{
+  position: absolute;
+  //height: 140px;
+  //width: 141px;
+  margin: 269px 0px 0px 890px;
+  //margin-right: 30px;
+  //border: 1px solid blue;
+  
+}
 // ************************     Sign in page sessions/new.html.erb  *************************** 
 #signup{
   width:492px;
   height:288px;
   background-image: url('background/black_bg.png');
-  margin: auto;
-  margin-top: 125px;
+  margin:125px auto;
+ // margin-top: 125px;
   color: #FFF;   
   //border: 1px solid blue;
 }
@@ -173,7 +204,7 @@ margin-top: 8px;
 }
 #signup_logo p{padding-top: 5px;}
 #signup_logoText{
-   background-image: url('logo/green_mouse.gif');
+   background-image: url('logo/green_mouse.png');
    background-repeat: no-repeat;
    margin-top: 10px;
    //border: 1px solid blue;
@@ -212,12 +243,12 @@ margin-top: 8px;
 }
 #signup_btn{
   width: 112px;
-  height: 30px;
+  height: 30px ;
   display: inline;
-  margin-top: 50px;
+  margin-top: 50px 154px 0px 0px;
   // background-image: url('buttons/register_bttn/active_register.png');
   float: right;
-  margin-right: 154px;
+ // margin-right: 154px;
    //border: 1px solid red;
 }
 
@@ -315,14 +346,19 @@ footer{
 #downArrow{
   display: none;
 }
-
+#footer_background{
+  background-color: #081013;
+  opacity:0.8;
+  filter:alpha(opacity=40); /* For IE8 and earlier */
+}
 #footer_hide{
   display: none;
   width: 80%;
-  height: 100px;
+  height: 130px;
   margin: 0 auto;
+  padding-top: 25px;
  // border: 1px solid green;
- //background-color: grey;
+
 }
 #footer_links{
   width:50%;
