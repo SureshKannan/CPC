@@ -103,10 +103,13 @@ a:active {
 #mainContainer{
   max-width:1280px;
   margin: 0 auto;
-  background-image: image-url('background/ray_ban_ad.jpg');
-  height: 680px;
+ 
  // border: 1px solid red;
   
+}
+#container{
+   background-image: image-url('background/ray_ban_ad.jpg');
+  height: 680px;
 }
 header{
   height: 58px;
@@ -280,3 +283,96 @@ margin-top: 8px;
     // background: #fff !important;
     // border: thin 1px;
 // }
+
+
+// ************************     footer  *************************** ************************************************
+footer{
+border: 1px solid red;
+}
+
+.footer_up{
+  margin-top: -160px;
+    opacity:.8;
+filter:alpha(opacity=40); /* For IE8 and earlier */
+}
+
+#footer_img{
+  height: 32px;
+ // margin-top: 597px;
+  background-image: url('footer/footer_closed.png');
+  //border: 1px solid green;
+ 
+}
+#footer_arrow{
+  height:8px;
+  width: 16px;
+  position: relative;
+  //z-index: 2;
+  //border:1px solid red;
+  //background-color: #FFF;
+   //background-image: url('footer/ftr_arrow_down.gif');
+   margin: 0 auto;
+   margin-top: 6px;
+   
+}
+
+#upArrow{
+  
+}
+
+#downArrow{
+  display: none;
+}
+
+#footer_hide{
+  display: none;
+  width: 80%;
+  height: 100px;
+  margin: 0 auto;
+ // border: 1px solid green;
+}
+#footer_links{
+  width:50%;
+ // background-color: grey;
+ // border: 1px solid red;
+  float: left;
+}
+
+#footer_links ul{
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+   margin: 0px;
+  padding: 0px;
+  
+}
+#footer_links ul li{
+ display: table-cell;
+ width: 33%;
+// border: 1px dotted red;
+}
+#footer_links ul li ul li{
+display: table-row;
+// background-image: url('footer/footer_line.gif');
+// background-repeat: no-repeat;  
+}
+#footer_links ul li ul li img{
+  display: table-row;
+  padding: 0px;
+  margin: 0px;
+ // border: 1px solid red;
+//padding-top: 50px;
+}
+
+
+
+#footer_email{
+  width: 50%;
+  float:right;
+  //border: 1px solid blue;
+}
+#footer_emailForm{
+  width: 80%;
+  margin: 0 auto;
+  //border: 1px solid blue;
+}

@@ -7,6 +7,28 @@
 		<%= csrf_meta_tags %>
 
 	</head>
+			<script>
+		function showFooter(){
+			//alert("Show Footer");
+			$('footer').addClass('footer_up');
+			$('#footer_hide').show();
+			$('#upArrow').hide();
+			$('#downArrow').show();
+			
+		}
+			
+		function hideFooter(){
+			//alert("Hide Footer");
+			//$('footer').addClass('footer_down');
+			$('footer').removeClass('footer_up');
+			$('#footer_hide').hide();
+			$('#upArrow').show();
+			$('#downArrow').hide();
+			
+			
+		}	
+			
+		</script>
 	<body>
 		<section id="mainContainer">
 			<header>
@@ -24,6 +46,75 @@
 				<%= yield %>
 
 			</section>
+			<footer>
+				<section id="footer_img">
+					<section id="collision"></section>
+					<section id="footer_arrow" >
+						<a id="upArrow" href="javascript:showFooter()"> <img src="/assets/footer/ftr_arrow_up.gif"  /></a>
+						<a id="downArrow" href="javascript:hideFooter()"> <img src="/assets/footer/ftr_arrow_down.gif"  /></a>
+					</section>
+				</section>
+				<section id="footer_hide">
+					<section id="footer_links">
+						<ul>
+							<li>
+								<ul>
+									<li>
+										<a href="#">About Us & Contacts<img src="/assets/footer/footer_line.gif" /></a>
+									</li>
+									<li>
+										<a href="#">Suppotr<img src="/assets/footer/footer_line.gif" /></a>
+									</li>
+									<li>
+										<a href="#">Legal<img src="/assets/footer/footer_line.gif" /></a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li>
+										<a href="#">Jobs<img src="/assets/footer/footer_line.gif" /></a>
+									</li>
+									<li>
+										<a href="#">Merchants Login<img src="/assets/footer/footer_line.gif" /></a>
+									</li>
+									<li>
+										<a href="#">Ad Polices<img src="/assets/footer/footer_line.gif" /></a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li>
+										<a href="#">Advertise<img src="/assets/footer/footer_line.gif" /></a>
+									</li>
+									<li>
+										<a href="#">Help<img src="/assets/footer/footer_line.gif" /></a>
+									</li>
+									<li>
+										<a href="#">Terms & Conditions<img src="/assets/footer/footer_line.gif" /></a>
+									</li>
+
+								</ul>
+							</li>
+						</ul>
+
+					</section>
+					<section id="footer_email">
+						<section id="footer_emailForm">
+							<p class="regular">
+								Keep in touch with click price.com
+							</p>
+							<form>
+								<input type="text" placeholder="email" />
+								<input type="button" />
+								Sign up
+							</form>
+						</section>
+					</section>
+				</section>
+			</footer>
+		</section>
 		</section>
 		<script>
 			// $(function(){
