@@ -1,0 +1,64 @@
+
+<section>
+	
+	<div id="dialog">
+		<div id="dialog_div"></div>
+	</div>
+	<ul>
+		<li><a href="http://localhost:3000/users/sign_in" class="dialogify">Dialogify Page 1</a> (<a href="http://localhost:3000/users/sign_in">view raw content</a>)</li>
+		<li><a href="ajax-data-2.html" class="dialogify">Dialogify Page 2</a> (<a href="ajax-data-2.html">view raw content</a>)</li>
+	</ul>
+	<script type="text/javascript">
+		/*
+		 * jQuery UI Dialog: Load Content via AJAX
+		 * http://salman-w.blogspot.com/2013/05/jquery-ui-dialog-examples.html
+		 */
+		
+		$(function() {
+			alert("Dialog test")
+		var page= "http://localhost:3000/users/sign_in";
+		var $dialog = $('<div></div>')
+				.html('<iframe style="border: 0px; " src="' + page + '" width= "100%" height="100%"></iframe ')
+				.dialog({
+					autoOpen: false,
+					modal: true,
+					height: 625,
+					width: 500
+				});
+		
+	
+	$dialog.dialog("open");
+		
+		
+		
+		
+			
+			
+			// $("#dialog").dialog({
+				// autoOpen: false,
+				// modal: true,
+				// width: 600,
+				// height: 300,
+				// buttons: {
+					// "Dismiss": function() {
+						// $(this).dialog("close");
+					// }
+				// }
+			// });
+			// $(#dialog).attr('src','http://localhost:3000/users/sign_in');
+			// $("#dialog").dialog("open");
+// 			
+// 			
+			// $(".dialogify").on("click", function(e) {
+				// e.preventDefault();
+				// $("#dialog").html("");
+				// $("#dialog").dialog("option", "title", "Loading...").dialog("open");
+				// $("#dialog").load(this.href, function() {
+					// $(this).dialog("option", "title", $(this).find("h1").text());
+					// $(this).find("h1").remove();
+				// });
+			// });
+		});
+	</script>
+</section>
+

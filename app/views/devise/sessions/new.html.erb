@@ -4,7 +4,7 @@
 <section id="signup" >
 	<section id="signup_all">
 		<section id="signup_logo">
-
+			<section id="collision"></section>
 			<section id="signup_logoText">
 				<p class="header">
 					Welcome!
@@ -23,11 +23,11 @@
 					<li>
 
 						
-						<%= f.text_field :signin, :autofocus => true, :placeholder => 'email OR username',class: 'field',:required => 'required', size: 30 %>
+						<%= f.text_field :signin, :autofocus => true, :placeholder => 'email OR username',:class=> 'field regular',:required => 'required', size: 30 %>
 					</li>
 					<li>
 						
-						<%= f.password_field :password, :placeholder => 'password',class: 'field',:required => 'required', size: 30 %></div>
+						<%= f.password_field :password, :placeholder => 'password',class: 'field regular',:required => 'required', size: 30 %></div>
 
 					</li>
 					<li>
@@ -35,7 +35,7 @@
 							<li>
 								<% if devise_mapping.rememberable? -%>
 
-								<%= f.check_box :remember_me %> <%= f.label :Keep_me_logged_in, :class => 'regular' %>
+								<%= f.check_box :remember_me %> <%= f.label :Keep_me_logged_in, :class => 'regular field ' %>
 
 								<% end -%>
 							</li>

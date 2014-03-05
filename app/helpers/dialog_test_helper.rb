@@ -1,0 +1,2 @@
+module DialogTestHelper
+end
