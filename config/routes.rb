@@ -5,8 +5,8 @@ CPC::Application.routes.draw do
  
   
    devise_scope :user do get "/registrations/term" => "registrations#term" end
-    devise_scope :user do get "/registrations/policy" => "registrations#policy" end
- 
+   devise_scope :user do get "/sessions/thankyou" => "sessions#thankyou" end
+   devise_scope :user do get "/registrations/policy" => "registrations#policy" end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
