@@ -73,12 +73,12 @@ a:active {
 }
 
 .right{
-  position: absolute;
+ // position: absolute;
   float: right;
   
 }
 .left{
-   position: absolute;
+  //position: absolute;
   left: 0;
 }
 .center{
@@ -132,7 +132,7 @@ header li:first-child{
 
 }
 
-#header_user{ 
+.header_user{ 
   text-decoration:none; 
   float:right;
   padding:15px 20px 0 0  ;
