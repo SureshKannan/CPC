@@ -132,6 +132,13 @@ header li:first-child{
 
 }
 
+#header_user{ 
+  text-decoration:none; 
+  float:right;
+  padding:15px 20px 0 0  ;
+
+  }
+
 header li:nth-child(2){
  margin-left: 60px;
 }

@@ -39,8 +39,8 @@
 					<li >
 						<%= image_tag "logo/white_logo.png", :class => 'white_logo' %>
 					</li>
-					<li> <% if user_signed_in? %>
-						<%= current_user.email%>
+					<li id="header_user" class="regularBold "> <% if user_signed_in? %>
+						<%= current_user.username%>
 						<% end%>
 					</li>
 
