@@ -1,11 +1,12 @@
 CPC::Application.routes.draw do
  
-  #get "home/index"
+   
+  #get "mailer/confirmation_instructions"
   root to: "home#index"
   devise_for :users, :controllers => {:registrations => "registrations", :sessions => "sessions", 
-    :passwords => "passwords", :confirmations => "confirmations"}
+    :passwords => "passwords", :confirmations => "confirmations", :mailer => "mailer"}
  
-  
+   devise_scope :user do get "/mailer/confirmation_instructions" => "mailer#confirmation_instructions" end
    devise_scope :user do get "/registrations/term" => "registrations#term" end
    devise_scope :user do get "/sessions/thankyou" => "sessions#thankyou" end
    devise_scope :user do get "/registrations/policy" => "registrations#policy" end
