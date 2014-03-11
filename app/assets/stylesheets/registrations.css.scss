@@ -420,6 +420,16 @@ display: table-row;
 // ************************     thankyou  page  *************************** ******************************************
 
 #thank_all{
-  
+   width: 80%;
+  margin: 0 auto;
 }
-#thank_text{}
+#thank_text{
+ padding-top: 40px;
+}
+
+#thank_text p:nth-child(2){
+ padding-top: 15px;
+}
+#thank_text p:nth-child(3){
+ padding-top: 15px;
+}

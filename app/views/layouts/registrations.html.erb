@@ -44,10 +44,10 @@
 						<%= current_user.username%>
 
 					</li>
-					<li class="right middle">
+					<li class="right middle regularBold">
 						<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
 						<% else %>
-						<%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+						<%= link_to "Sign up", new_user_registration_path %> OR <%= link_to "sign in", new_user_session_path %>
 						<!-- <input type="button" value="Sign out" style="height: 30px;"> -->
 						<% end%>
 					</li>
