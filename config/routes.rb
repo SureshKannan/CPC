@@ -3,7 +3,7 @@ CPC::Application.routes.draw do
 
   
   devise_scope :user do
-  root :to => "users#sign_in"
+  root :to => "home#index"
   end
 
 
