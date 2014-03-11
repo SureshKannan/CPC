@@ -39,8 +39,16 @@
 					<li >
 						<%= image_tag "logo/white_logo.png", :class => 'white_logo' %>
 					</li>
-					<li> <% if user_signed_in? %>
-						<%= current_user.email%>
+					<li id="" class="regularBold header_user">
+						<% if user_signed_in? %>
+						<%= current_user.username%>
+
+					</li>
+					<li class="right middle regularBold">
+						<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+						<% else %>
+						<%= link_to "Sign up", new_user_registration_path %> OR <%= link_to "sign in", new_user_session_path %>
+						<!-- <input type="button" value="Sign out" style="height: 30px;"> -->
 						<% end%>
 					</li>
 
@@ -49,16 +57,7 @@
 			</header>
 
 			<section id="container">
-				<section id="dialog"></section>
-				<section id="bg_ad_bttn">
-					<a href="#"> <img src="/assets/buttons/bg_ad_bttn/hover_bg_ad_bttn.png"/></a>
-				</section>
-				<section id="ad_bttn">
-					<a href="#"> <img src="/assets/buttons/ad_bttn/hover_ad_bttn.png"/></a>
-				</section>
-				<section id="partner_bttn">
-					<a href="#"> <img src="/assets/buttons/partner_bttn/hover_partner_bttn.png"/></a>
-				</section>
+			
 				<section class="collision"></section>
 				<%= yield %>
 
@@ -137,7 +136,7 @@
 		</section>
 
 		<script>
-						// $(function(){
+			// $(function(){
 			// $('#dialog').dialog({
 			// autoOpen: false,
 			// modal: true,
@@ -149,23 +148,23 @@
 			// }
 			// }
 			// });
-// 
+			//
 			// $(".check").on("click", function(e){
 			// alert("alert")
 			// e.preventDefault();
 			// $("#dialog").html("");
 			// $("#dialog").dialog("option", "title", "Loading...").dialog("open");
 			// $("#dialog").load(this.href, function(){
-				// $(this).dialog("option", "title");
-// 				
+			// $(this).dialog("option", "title");
+			//
 			// });
 			// });
-// 
+			//
 			// });
-			
-// 			
-			 $(function()
-			 {
+
+			//
+			$(function()
+			{
 				$('.check').on('click', function(e)
 				{
 					e.preventDefault();
@@ -179,13 +178,13 @@
 						//'dialogClass' : "no_title",
 						'width' : 484,
 						'height' : 590,
-					//	'modal' : true,
+						//	'modal' : true,
 						buttons : [
 						{
 							text : "OK",
 							click : function()
 							{
-								alert("Close");								
+								alert("Close");
 								$(this).dialog("close");
 								alert("done")
 							}

@@ -1,5 +1,21 @@
-<p>Welcome <%= @email %>!</p>
+<section id="signup_logo">
+	<section class="collision"></section>
+	<section id="signup_logoText">
+		<p class="header">
+			Welcome!
+		</p>
+	</section>
 
-<p>You can confirm your account email through the link below:</p>
+</section>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @token) %></p>
+<p>
+	Welcome <%= @email %>!
+</p>
+
+<p>
+	You can confirm your account email through the link below:
+</p>
+
+<p>
+	<%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @token) %>
+</p>

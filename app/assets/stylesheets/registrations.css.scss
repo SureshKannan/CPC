@@ -73,12 +73,12 @@ a:active {
 }
 
 .right{
-  position: absolute;
+ // position: absolute;
   float: right;
   
 }
 .left{
-   position: absolute;
+  //position: absolute;
   left: 0;
 }
 .center{
@@ -131,6 +131,13 @@ header li:first-child{
  margin-left: 167px;
 
 }
+
+.header_user{ 
+  text-decoration:none; 
+  float:right;
+  padding:15px 20px 0 0  ;
+
+  }
 
 header li:nth-child(2){
  margin-left: 60px;
@@ -413,6 +420,16 @@ display: table-row;
 // ************************     thankyou  page  *************************** ******************************************
 
 #thank_all{
-  
+   width: 80%;
+  margin: 0 auto;
 }
-#thank_text{}
+#thank_text{
+ padding-top: 40px;
+}
+
+#thank_text p:nth-child(2){
+ padding-top: 15px;
+}
+#thank_text p:nth-child(3){
+ padding-top: 15px;
+}

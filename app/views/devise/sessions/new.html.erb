@@ -1,5 +1,5 @@
 <!-- <h2>Sign in</h2> -->
-
+<%= render "devise/shared/adPage" %>
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 <section id="signup" >
 	<section id="signup_all">
@@ -17,16 +17,15 @@
 			</p>
 
 		</section>
-		<section id="signup_field"> 
+		<section id="signup_field">
 			<section id="signup_text">
 				<ul>
 					<li>
 
-						
 						<%= f.text_field :signin, :autofocus => true, :placeholder => 'email OR username',:class=> 'field regular',:required => 'required', size: 30 %>
 					</li>
 					<li>
-						
+
 						<%= f.password_field :password, :placeholder => 'password',class: 'field regular',:required => 'required', size: 30 %></div>
 
 					</li>
@@ -40,7 +39,7 @@
 								<% end -%>
 							</li>
 							<li>
-								
+
 								<input type="image" src="/assets/buttons/login_bttn/active_login_bttn.png" alt="Submit">
 							</li>
 						</ul>
@@ -71,13 +70,11 @@
 					<% end -%>
 				</p>
 
-
 				<p class="regular">
 					If did not receive conformation email, please click
 					<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
 					<%= link_to "Resend", new_confirmation_path(resource_name), :class => 'regularBold'  %>
-					
-					
+
 					<br />
 					<% end -%>
 
@@ -86,6 +83,6 @@
 					<a  href="#"><img src="/assets/buttons/guest_bttn/active_guest_bttn.png" /></a>
 				</p>
 			</section>
-		</section>  
+		</section>
 	</section>
 </section>
