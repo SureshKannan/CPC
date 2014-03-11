@@ -1,7 +1,12 @@
 CPC::Application.routes.draw do
  
-  #get "home/index"
-  root to: "home#index"
+
+  
+  devise_scope :user do
+  root :to => "users#sign_in"
+  end
+
+
   devise_for :users, :controllers => {:registrations => "registrations", :sessions => "sessions", 
     :passwords => "passwords", :confirmations => "confirmations"}
  
