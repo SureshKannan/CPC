@@ -1,21 +1,92 @@
-<section id="signup_logo">
-	<section class="collision"></section>
-	<section id="signup_logoText">
-		<p class="header">
-			Welcome!
-		</p>
-	</section>
+<!DOCTYPE >
+<html>
+	<head>
+		<title>email</title>
+		<style>
+			body, header, p {
+				margin: 0px;
+				padding: 0px;
+				border: 0px;
+				font-family: Century Gothic;
+			}
+			#mainContainer {
+				max-width: 800px;
+				margin: 0 auto;//
+				border: 1px solid red;
+			}
 
-</section>
+			#signup_logoText {
+				font-size: 20px;
+				font-weight: bolder;
+				padding-left: 30px;
+				margin-top: -10px;
+			}
+			header {
+				font-size: 28px;
+				color: #FFF;
+				font-weight: bolder;
+				text-align: center;
+				vertical-align: middle;
+				height: 40px;
+				background-color: grey;
+				margin-top: 30px;
+			}
+			p {
+				margin-top: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<section id="mainContainer">
+			<section id="signup_logo">
+				<img src="/assets/logo/green_mouse.png" />
+			</section>
+			<section class="collision"></section>
+			<section id="signup_logoText">
+				ClickPriceCheck
+			</section>
+			<header>
+				Confirm Registration
+			</header>
+			<section>
+				<p >
+					Welcome <%= @email %>!
+				</p>
+				<p >
+					Thank you for registering with clickpricecheck.com.
+					After confirming your registration, you will be redirected
+					to your CPC account.
+				</p>
+				<p>
+					Your access to great deals and the opportunity to
+					create your online store is just a couple of clicks away!
+					If the button above does not redirect you to your CPC
+					account, please copy and paste the following link into
+					your web browser:htt://www.clickpricecheck.com/confirmregistration1234
 
-<p>
-	Welcome <%= @email %>!
-</p>
+				</p>
+				<p>
 
-<p>
-	You can confirm your account email through the link below:
-</p>
+					To ensure you receive our e-mail alerts please add
+					clickpricecheck.com to your contacts list or list of safe
+					senders
 
-<p>
-	<%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @token) %>
-</p>
+				</p>
+			</section>
+
+			<p>
+				You can confirm your account email through the link below:
+			</p>
+			<p>
+				<%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @token) %>
+			</p>
+
+		</section>
+	</body>
+</html>
+
+
+
+
+
+
