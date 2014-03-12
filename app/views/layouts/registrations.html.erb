@@ -3,7 +3,7 @@
 	<head>
 		<title>CPC Registration</title>
 		<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-		<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
+		
 		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 		<%= csrf_meta_tags %>
 
@@ -28,6 +28,28 @@
 			$('#upArrow').show();
 			$('#downArrow').hide();
 
+		}
+
+		function validateCheckbox()
+		{
+			//alert("checkbox");
+			if (!jQuery('#terms').is(":checked") || !jQuery('#policy').is(":checked"))
+			{
+				//alert("False");
+				$('#checkbox_error').show();
+				//alert("show")
+				return false;
+			}
+		}
+		
+		function dialogClose(){
+			alert("dialog");
+			var isOpen = $(this).dialog("isOpen");
+		
+			alert(isOpen);
+		
+			
+			$(this).dialog("close");
 		}
 
 	</script>
@@ -57,7 +79,7 @@
 			</header>
 
 			<section id="container">
-			
+
 				<section class="collision"></section>
 				<%= yield %>
 
@@ -165,6 +187,21 @@
 			//
 			$(function()
 			{
+
+				$(".checkbox").change(function()
+				{
+					if (this.checked)
+					{
+						if (jQuery('#terms').is(":checked") && jQuery('#policy').is(":checked"))
+						{
+
+							$('#checkbox_error').hide();
+
+						}
+
+					}
+				});
+
 				$('.check').on('click', function(e)
 				{
 					e.preventDefault();
@@ -175,20 +212,20 @@
 					}).load($(this).attr('href')).appendTo('body').dialog(
 					{
 						// // 'title' : $(this).text(),
-						//'dialogClass' : "no_title",
-						'width' : 484,
-						'height' : 590,
-						//	'modal' : true,
-						buttons : [
-						{
-							text : "OK",
-							click : function()
-							{
-								alert("Close");
-								$(this).dialog("close");
-								alert("done")
-							}
-						}]
+						'dialogClass' : "no_title",
+						//'width' : 484,
+						//'height' : 300,
+							'modal' : true
+						// buttons : [
+						// {
+							// text : "OK",
+							// click : function()
+							// {
+								// alert("Close");
+								// $(this).dialog("close");
+								// alert("done")
+							// }
+						// }]
 					})
 				});
 			});
