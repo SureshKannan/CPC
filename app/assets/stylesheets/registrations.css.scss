@@ -62,7 +62,6 @@ a:active {
 */
 .regular{
   font-size: 11px;
-
 }
 
 .regularBold{
@@ -282,40 +281,41 @@ margin-top: 8px;
   
  // border: 1px solid #0099FF;
 }
-
+#checkbox_error{
+  width:182px;
+  height:100px;
+  background-image: url('agree_popup/agree_popup.png');
+  margin-left: -182px;
+  display: none;
+  z-index: 3;
+}
 #reg_btn{
   width: 29%;
   float: right;
  //border: 1px solid grey;
 }
 
-.myDlgClass{
-  height: 500px;
-}
+
 #term{
   width:484px;
-  height:600px;
-  margin: auto;
+  height:400px;
+  margin-top: -200px;
   background-image: url('background/full_grey_texture_bg.jpg');
 }
 
+#term_header{
+  
+}
+#term_button{
+  margin-left: 464px;
+  margin-top: -40px;
+}
 .no_title .ui-dialog-titlebar{
   display: none;
 }
-// .no_title .ui-widget-window{display: none;}
-// .ui-widget-header {
-    // background: red !important;
-    // border: none
-// }
-// 
-// .ui-dialog-titlebar-close{
-    // background: #1C1C1C !important;
-// }
-// 
-// .ui-dialog {
-    // background: #fff !important;
-    // border: thin 1px;
-// }
+// .no_title .ui-widget{display: none;}
+// .no_title .ui-widget-content{display: none;}
+
 
 
 // ************************     footer  *************************** ************************************************

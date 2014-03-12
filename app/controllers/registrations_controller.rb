@@ -11,8 +11,5 @@ class RegistrationsController < Devise::RegistrationsController
     render :layout => 'popup'
   end
   
-  protected
-  def after_sign_up_path_for(users)
-    'sessions/thankyou'
-  end
+ 
 end
