@@ -1,5 +1,5 @@
-class RegistrationsController < Devise::RegistrationsController
-  # layout 'registration'
+class MyDevise::RegistrationsController < Devise::RegistrationsController
+   layout 'registrations'
  
   def term
     render :layout => 'popup'

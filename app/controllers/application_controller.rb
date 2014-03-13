@@ -18,11 +18,11 @@ class ApplicationController < ActionController::Base
       # stored_location_for(resource) || request.referer || root_path
     # end
   # end
-    def after_sign_up_path_for(resource)
-    sign_up_url = url_for(:action => 'new', :controller => 'registrations' , :only_path => false, :protocol => 'http')
-      if request.referer == sign_up_url
-      'sesstions/thankyou'
-   
-    end
-  end
+    # def after_sign_up_path_for(resource)
+    # sign_up_url = url_for(:action => 'new', :controller => 'registrations' , :only_path => false, :protocol => 'http')
+      # if request.referer == sign_up_url
+      # 'sesstions/thankyou'
+#    
+    # end
+  # end
 end
