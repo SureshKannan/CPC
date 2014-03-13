@@ -3,12 +3,13 @@
 	<head>
 		<title>CPC Registration</title>
 		<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-		<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
+
 		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 		<%= csrf_meta_tags %>
 
 	</head>
 	<script>
+	// Footer functions ************************************************************
 		function showFooter()
 		{
 			//alert("Show Footer");
@@ -29,6 +30,20 @@
 			$('#downArrow').hide();
 
 		}
+// For terms & condition and Policy checkboxes  ****************************************************
+		function validateCheckbox()
+		{
+			//alert("checkbox");
+			if (!jQuery('#terms').is(":checked") || !jQuery('#policy').is(":checked"))
+			{
+				//alert("False");
+				$('#checkbox_error').show();
+				//alert("show")
+				return false;
+			}
+		}
+
+
 
 	</script>
 	<body>
@@ -55,9 +70,9 @@
 				</ul>
 
 			</header>
-
+<!-- <section id="dialog"></section> -->
 			<section id="container">
-			
+
 				<section class="collision"></section>
 				<%= yield %>
 
@@ -67,8 +82,8 @@
 				<section id="footer_img">
 					<section class="collision"></section>
 					<section id="footer_arrow" >
-						<a id="upArrow" href="javascript:showFooter()"> <img src="/assets/footer/ftr_arrow_up.gif"  /></a>
-						<a id="downArrow" href="javascript:hideFooter()"> <img src="/assets/footer/ftr_arrow_down.gif"  /></a>
+						<a id="upArrow" href="javascript:showFooter()"> <img src="/assets/footer/ftr_arrow_up.png"  /></a>
+						<a id="downArrow" href="javascript:hideFooter()"> <img src="/assets/footer/ftr_arrow_down.png"  /></a>
 					</section>
 				</section>
 				<section id="footer_background">
@@ -136,61 +151,50 @@
 		</section>
 
 		<script>
-			// $(function(){
-			// $('#dialog').dialog({
-			// autoOpen: false,
-			// modal: true,
-			// width: 600,
-			// height: 400,
-			// buttons:{
-			// 'Close': function(){
-			// $(this).dialog("close");
-			// }
-			// }
-			// });
-			//
-			// $(".check").on("click", function(e){
-			// alert("alert")
-			// e.preventDefault();
-			// $("#dialog").html("");
-			// $("#dialog").dialog("option", "title", "Loading...").dialog("open");
-			// $("#dialog").load(this.href, function(){
-			// $(this).dialog("option", "title");
-			//
-			// });
-			// });
-			//
-			// });
-
-			//
 			$(function()
 			{
-				$('.check').on('click', function(e)
+// For terms & condition and Policy checkboxes ********************************************************
+				$(".checkbox").change(function()
 				{
-					e.preventDefault();
-					$('<div/>',
+					if (this.checked)
 					{
-						'class' : 'myDlgClass',
-						'id' : 'link-' + ($(this).index() + 1)
-					}).load($(this).attr('href')).appendTo('body').dialog(
-					{
-						// // 'title' : $(this).text(),
-						//'dialogClass' : "no_title",
-						'width' : 484,
-						'height' : 590,
-						//	'modal' : true,
-						buttons : [
+						if (jQuery('#terms').is(":checked") && jQuery('#policy').is(":checked"))
 						{
-							text : "OK",
-							click : function()
-							{
-								alert("Close");
-								$(this).dialog("close");
-								alert("done")
-							}
-						}]
-					})
+							$('#checkbox_error').hide();
+						}
+					}
 				});
+				
+	// Dialog *****************************************************************************************			
+				$('#dialog').dialog(
+				{
+					autoOpen : false,
+					modal : true,
+					dialogClass : 'no_title',
+					width : 484,
+					height : 420,
+					buttons :
+					{
+						'Close' : function()
+						{
+							$(this).dialog("close");
+						}
+					}
+				});
+
+				$(".check").on("click", function(e)
+				{
+					//alert("alert")
+					e.preventDefault();
+					$("#dialog").html("");
+					$("#dialog").dialog().dialog("open");
+					$("#dialog").load(this.href, function()
+					{
+						$(this).dialog();
+
+					});
+				});
+
 			});
 
 		</script>
