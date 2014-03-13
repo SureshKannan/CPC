@@ -1,17 +1,9 @@
 CPC::Application.routes.draw do
-<<<<<<< HEAD
 
   devise_scope :user do
     root :to => "home#index"
   end
 
-  devise_for :users, :controllers => {:registrations => "registrations", :sessions => "sessions",
-    :passwords => "passwords", :confirmations => "confirmations", :mailer => "mailer"}
-=======
- 
-   
- 
-  root to: "home#index"
   devise_for :users, :controllers => {:registrations => "my_devise/registrations", :sessions => "my_devise/sessions", 
     :passwords => "my_devise/passwords", :confirmations => "my_devise/confirmations", :mailer => "my_devise/mailer"}
  
@@ -21,7 +13,7 @@ CPC::Application.routes.draw do
    devise_scope :user do get "/home/policy" => "home#policy" end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
->>>>>>> Development
+
 
   devise_scope :user do get "/mailer/confirmation_instructions" => "mailer#confirmation_instructions" end
   devise_scope :user do get "/registrations/term" => "registrations#term" end
