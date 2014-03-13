@@ -1,4 +1,4 @@
-class MYDevise::ConfirmationsController < Devise::ConfirmationsController
+class MyDevise::ConfirmationsController < Devise::ConfirmationsController
   layout 'registrations'
  
 end

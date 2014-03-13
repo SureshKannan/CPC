@@ -6,7 +6,7 @@ CPC::Application.routes.draw do
   devise_for :users, :controllers => {:registrations => "my_devise/registrations", :sessions => "my_devise/sessions", 
     :passwords => "my_devise/passwords", :confirmations => "my_devise/confirmations", :mailer => "my_devise/mailer"}
  
-   devise_scope :user do get "/mailer/confirmation_instructions" => "mailer#confirmation_instructions" end
+   #devise_scope :user do get "/mailer/confirmation_instructions" => "mailer#confirmation_instructions" end
    devise_scope :user do get "/home/term" => "home#term" end
    devise_scope :user do get "/sessions/thankyou" => "sessions#thankyou" end
    devise_scope :user do get "/home/policy" => "home#policy" end
