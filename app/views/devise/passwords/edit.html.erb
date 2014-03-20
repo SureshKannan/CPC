@@ -6,17 +6,17 @@
 	<section id="reg_all">
 		<h2>Change your password</h2>
 		<section id="signup_field">
-			<section id="sreg_text">
+			<section id="edit_pass">
 				<div>
-					<%= f.label :password, "New password" %>
-					<br />
-					<%= f.password_field :password, :autofocus => true %>
+					<!-- <%= f.label :password, "New password" %>
+					<br /> -->
+					<%= f.password_field :password, :placeholder => 'New Password', :autofocus => true %>
 				</div>
 
 				<div>
-					<%= f.label :password_confirmation, "Confirm new password" %>
-					<br />
-					<%= f.password_field :password_confirmation %>
+					<!-- <%= f.label :password_confirmation, "Confirm new password" %>
+					<br /> -->
+					<%= f.password_field :password_confirmation, :placeholder => 'Confirm password' %>
 				</div>
 			</section>
 			<section id="reg_buttons">
