@@ -35,6 +35,7 @@ input{
   .collision{height:1px;}
 .header{
   font-size: 20px;
+  font-weight: bold;
 }
 
 a {
@@ -441,3 +442,34 @@ display: table-row;
 #thank_text p:nth-child(3){
  padding-top: 15px;
 }
+// ************************     Profile  *************************** ******************************************
+#profile{
+  width:1200px;
+  height: 587px;
+  background-image: url('background/full_grey_texture_bg.jpg');
+  margin: 0 auto;
+  //border: 1px solid white;
+}
+#profile_header{
+  font-size:28px;
+}
+#profile_fields{
+border: 1px solid white;
+height: 487px;
+}
+#profile_general{
+  width: 33%;
+  float: left;
+  border: 1px solid red;
+}
+#profile_emailNote{
+  width: 32%;
+  float: right;
+  border: 1px solid blue;
+}
+#profile_personal{
+  width: 32%;
+  float: left;
+  border: 1px solid yellow;
+}
+#profile_button{}

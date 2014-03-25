@@ -11,7 +11,61 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140205225313) do
+ActiveRecord::Schema.define(version: 20140325153933) do
+
+  create_table "favorite_stores", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "favorite_stores_users", id: false, force: true do |t|
+    t.integer "favorite_store_id"
+    t.integer "user_id"
+  end
+
+  create_table "interests", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "interests_users", id: false, force: true do |t|
+    t.integer "interest_id"
+    t.integer "user_id"
+  end
+
+  create_table "profiles", force: true do |t|
+    t.string   "firstName"
+    t.string   "lastName"
+    t.string   "aptNo"
+    t.string   "street"
+    t.string   "city"
+    t.string   "province"
+    t.string   "country"
+    t.string   "postalcode"
+    t.string   "phoneNumber"
+    t.string   "cellphone"
+    t.string   "gender"
+    t.string   "birthday"
+    t.string   "ethncity"
+    t.string   "maritalStatus"
+    t.string   "carrier"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "send_emails", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "send_emails_users", id: false, force: true do |t|
+    t.integer "send_email_id"
+    t.integer "user_id"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
