@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+Interest.create([{:name => 'Sports'},{:name => 'Shopping'},{:name => 'Electronics'},{:name => 'Chat'},
+  {:name => 'Software'},{:name => 'Online Game'}])
+FavoriteStore.create([{:name => 'Staples'},{:name => 'BestBuy'},{:name => 'Futureshop'},{:name => 'Ebay'}])
+SendEmail.create([{:name => 'Message'},{:name => 'Follow'},{:name => 'Product'},{:name => 'Advertisement'},
+        {:name => 'Promotion'},{:name => 'Newsletter'}])

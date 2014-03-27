@@ -4,21 +4,19 @@ CPC::Application.routes.draw do
     root :to => "home#index"
   end
 
-  devise_for :users, :controllers => {:registrations => "my_devise/registrations", :sessions => "my_devise/sessions", 
-    :passwords => "my_devise/passwords", :confirmations => "my_devise/confirmations", :mailer => "my_devise/mailer"}
- 
-   #devise_scope :user do get "/mailer/confirmation_instructions" => "mailer#confirmation_instructions" end
-   devise_scope :user do get "/home/term" => "home#term" end
-   devise_scope :user do get "/sessions/thankyou" => "sessions#thankyou" end
-   devise_scope :user do get "/home/policy" => "home#policy" end
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  devise_for :users, :controllers => {:registrations => "my_devise/registrations", :sessions => "my_devise/sessions",
+    :passwords => "my_devise/passwords"}
 
-
-  devise_scope :user do get "/mailer/confirmation_instructions" => "mailer#confirmation_instructions" end
-  devise_scope :user do get "/registrations/term" => "registrations#term" end
-  devise_scope :user do get "/sessions/thankyou" => "sessions#thankyou" end
-  devise_scope :user do get "/registrations/policy" => "registrations#policy" end
+  #devise_scope :user do get "/mailer/confirmation_instructions" => "mailer#confirmation_instructions" end
+  devise_scope :user do get "/home/term" => "home#term" end
+  devise_scope :user do get "/my_devise/sessions/thankyou" => "my_devise/sessions#thankyou" end
+  devise_scope :user do get "/home/policy" => "home#policy" end
+  
+  resources :profiles do
+    resources :interests
+    resources :favorite_stores
+    resources :send_emails
+  end
 # The priority is based upon order of creation: first created -> highest priority.
 # See how all your routes lay out with "rake routes".
 

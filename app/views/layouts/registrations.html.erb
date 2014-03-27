@@ -54,19 +54,25 @@
 					<li >
 						<%= image_tag "logo/white_logo.png", :class => 'white_logo' %>
 					</li>
+					<% if user_signed_in? %>
 					<li id="" class="regularBold header_user">
-						<% if user_signed_in? %>
+						
+						<%= link_to "Profile", new_profile_path %>
+
+					</li>
+					<li id="" class="regularBold header_user">
+						
 						<%= current_user.username%>
 
 					</li>
-					<li class="right middle regularBold">
+					<li class="header_user regularBold"><p>
 						<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
 						<% else %>
-						<%= link_to "Sign up", new_user_registration_path %> OR <%= link_to "sign in", new_user_session_path %>
+						<%= link_to "Sign up", new_user_registration_path, :class => 'header_user regularBold' %> OR <%= link_to "sign in", new_user_session_path, :class => 'header_user regularBold' %>
 						<!-- <input type="button" value="Sign out" style="height: 30px;"> -->
-						<% end%>
+						</p>
 					</li>
-
+					<% end%>
 				</ul>
 
 			</header>

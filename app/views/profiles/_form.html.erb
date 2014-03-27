@@ -1,0 +1,176 @@
+<%= form_for(current_user.profile) do |f| %>
+<% if current_user.profile.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(current_user.profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+	<ul>
+		<% current_user.profile.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<section id="profile_fields">
+	<section id="profile_general" >
+
+		<table class="center">
+			<th class="header">General</th>
+			<tr>
+				<td>
+				<div class="field regular">
+					<!-- <%= f.label :firstName %><br> -->
+					<%= f.text_field :firstName, :placeholder => 'First Name'%>
+				</div></td>
+			</tr>
+			<tr>
+				<td>
+				<div class="field regular">
+					<!-- <%= f.label :lastName %><br> -->
+					<%= f.text_field :lastName, :placeholder => 'Last Name' %>
+				</div></td>
+			</tr>
+			<tr>
+				<td>
+				<div class="field regular">
+					<%= f.text_field :aptNo, :placeholder => 'Apt number' %>
+				</div></td>
+			</tr>
+			<tr>
+				<td>
+				<div class="field regular">
+					<%= f.text_field :street, :placeholder => 'street' %>
+				</div></td>
+			</tr>
+			<tr>
+				<td>
+				<div class="field regular">
+					<%= f.text_field :city, :placeholder => 'City' %>
+				</div></td>
+			</tr>
+			<tr>
+				<td>
+				<div class="field regular">
+					<%= f.text_field :province, :placeholder => 'Province' %>
+				</div></td>
+			</tr>
+			<tr>
+				<td>
+				<div class="field regular">
+					<%= f.text_field :country, :placeholder => 'Country' %>
+				</div></td>
+			</tr>
+			<tr>
+				<td>
+				<div class="field regular">
+					<%= f.text_field :postalcode, :placeholder => 'Postal Code' %>
+				</div></td>
+			</tr>
+			<tr>
+				<td>
+				<div class="field regular">
+					<%= f.text_field :phoneNumber, :placeholder => 'Phone Number' %>
+				</div></td>
+			</tr>
+			<tr>
+				<td>
+				<div class="field regular">
+					<%= f.text_field :cellphone, :placeholder => 'Cell Phone' %>
+				</div></td>
+			</tr>
+
+		</table>
+
+	</section>
+	<section id="profile_emailNote" >
+		<table>
+			<th>Email Notification</th>
+			<tr>
+				<td> <%= f.label "E mail Notifications", :class => 'header center'%>
+				<br />
+				
+				<% SendEmail.all.each do |send_email|%>
+				<%= check_box_tag 'profile[send_email_ids][]', send_email.id,
+				current_user.profile.send_email_ids.include?(send_email.id), id: dom_id(send_email) %>
+				<%= label_tag dom_id(send_email), send_email.name, class: "check_box_label" %>
+				<% end %> </td>
+			</tr>
+		</table>
+	</section>
+	<section id="profile_personal" >
+		<table class="center">
+			<th class="header center">Personal Information</th>
+			<tr>
+				<td>
+				<div class="field regular">
+
+					<!-- <%= f.text_field :gender, :placeholder => 'Gender'%> -->
+					<%= label_tag('gender', 'Gender', :class => 'check_box_label')%>
+					<%= f.radio_button 'gender', 'male'%>
+					<%= label_tag('gender', 'Male', :class => 'check_box_label')%>
+					<%= f.radio_button 'gender', 'female'%>
+					<%= label_tag('gender', 'Female', :class => 'check_box_label')%>
+				</div></td>
+			</tr>
+			<tr>
+				<td>
+				<div class="field regular">
+					 <%= f.label :birthday, :class => 'check_box_label' %> 
+					<%= f.date_field :birthday %>
+				</div></td>
+			</tr>
+			<tr>
+				<td>
+				<div class="field regular">
+					<%= f.text_field :ethncity, :placeholder => 'Ethnicity' %>
+				</div></td>
+			</tr>
+			<tr>
+				<td>
+				<div class="field regular">
+					<%= f.text_field :maritalStatus, :placeholder => 'Marital Status' %>
+				</div></td>
+			</tr>
+			<tr>
+				<td>
+				<div class="field regular">
+					<%= f.text_field :carrier, :placeholder => 'Carrier' %>
+				</div></td>
+			</tr>
+			<tr>
+				<td> <%= f.label "Interests", :class => 'header center' %>
+				<br />
+				
+				<% Interest.all.each do |interest|%>
+				<%= check_box_tag 'profile[interest_ids][]', interest.id,
+				current_user.profile.interest_ids.include?(interest.id), id: dom_id(interest) %>
+				<%= label_tag dom_id(interest), interest.name, class: "check_box_label" %>
+				<% end %> </td>
+			</tr>
+
+			<tr>
+				<td> <%= f.label "Favorite Stores", :class => 'header center'%>
+				<br />
+				<% FavoriteStore.all.each do |favorite_store|%>
+				<%= check_box_tag 'profile[favorite_store_ids][]', favorite_store.id,
+				current_user.profile.favorite_store_ids.include?(favorite_store.id), id: dom_id(favorite_store) %>
+				<%= label_tag dom_id(favorite_store), favorite_store.name, class: "check_box_label" %>
+				<% end %> </td>
+			</tr>
+
+		</table>
+	</section>
+
+</section>
+
+<section id="profile_button">
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+</section>
+
+<% end %>
+<section>
+	<p><%= current_user.id%></p>
+</section>
