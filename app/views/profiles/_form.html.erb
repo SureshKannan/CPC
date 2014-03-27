@@ -1,16 +1,18 @@
-<%= form_for(@profile) do |f| %>
-  <% if @profile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+<%= form_for(current_user.profile) do |f| %>
+<% if current_user.profile.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(current_user.profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
 
-      <ul>
-      <% @profile.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <section id="profile_fields">
+	<ul>
+		<% current_user.profile.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<section id="profile_fields">
 	<section id="profile_general" >
 
 		<table class="center">
@@ -82,15 +84,18 @@
 
 	</section>
 	<section id="profile_emailNote" >
-		<table><th>Email Notification</th>
-				<tr><td>
-				<%= f.label "E mail Notifications", :class => 'header center'%><br />
-				<% SendEmail.all.each do |e|%>
-				<%= check_box_tag 'email[e_ids][]', e.id, 
-				@profile.send_email_ids.include?(e.id), id: dom_id(e) %>
-				<%= label_tag dom_id(e), e.name, class: "check_box_label" %>
-				<% end %>
-			</td></tr>
+		<table>
+			<th>Email Notification</th>
+			<tr>
+				<td> <%= f.label "E mail Notifications", :class => 'header center'%>
+				<br />
+				
+				<% SendEmail.all.each do |send_email|%>
+				<%= check_box_tag 'profile[send_email_ids][]', send_email.id,
+				current_user.profile.send_email_ids.include?(send_email.id), id: dom_id(send_email) %>
+				<%= label_tag dom_id(send_email), send_email.name, class: "check_box_label" %>
+				<% end %> </td>
+			</tr>
 		</table>
 	</section>
 	<section id="profile_personal" >
@@ -99,15 +104,20 @@
 			<tr>
 				<td>
 				<div class="field regular">
-					<!-- <%= f.label :firstName %><br> -->
-					<%= f.text_field :gender, :placeholder => 'Gender'%>
+
+					<!-- <%= f.text_field :gender, :placeholder => 'Gender'%> -->
+					<%= label_tag('gender', 'Gender', :class => 'check_box_label')%>
+					<%= f.radio_button 'gender', 'male'%>
+					<%= label_tag('gender', 'Male', :class => 'check_box_label')%>
+					<%= f.radio_button 'gender', 'female'%>
+					<%= label_tag('gender', 'Female', :class => 'check_box_label')%>
 				</div></td>
 			</tr>
 			<tr>
 				<td>
 				<div class="field regular">
-					<!-- <%= f.label :lastName %><br> -->
-					<%= f.text_field :birthday, :placeholder => 'Date of Birth' %>
+					 <%= f.label :birthday, :class => 'check_box_label' %> 
+					<%= f.date_field :birthday %>
 				</div></td>
 			</tr>
 			<tr>
@@ -128,28 +138,30 @@
 					<%= f.text_field :carrier, :placeholder => 'Carrier' %>
 				</div></td>
 			</tr>
-			<tr><td>
-				<%= f.label "Interests", :class => 'header center' %><br />
-				<% Interest.all.each do |i|%>
-				<%= check_box_tag 'profile[i_ids][]', i.id, 
-				@profile.interest_ids.include?(i.id), id: dom_id(i) %>
-				<%= label_tag dom_id(i), i.name, class: "check_box_label" %>
-				<% end %>
-			</td></tr>
-			
-			<tr><td>
-				<%= f.label "Favorite Stores", :class => 'header center'%><br />
-				<% FavoriteStore.all.each do |s|%>
-				<%= check_box_tag 'store[s_ids][]', s.id, 
-				@profile.favorite_store_ids.include?(s.id), id: dom_id(s) %>
-				<%= label_tag dom_id(s), s.name, class: "check_box_label" %>
-				<% end %>
-			</td></tr>
-			
+			<tr>
+				<td> <%= f.label "Interests", :class => 'header center' %>
+				<br />
+				
+				<% Interest.all.each do |interest|%>
+				<%= check_box_tag 'profile[interest_ids][]', interest.id,
+				current_user.profile.interest_ids.include?(interest.id), id: dom_id(interest) %>
+				<%= label_tag dom_id(interest), interest.name, class: "check_box_label" %>
+				<% end %> </td>
+			</tr>
+
+			<tr>
+				<td> <%= f.label "Favorite Stores", :class => 'header center'%>
+				<br />
+				<% FavoriteStore.all.each do |favorite_store|%>
+				<%= check_box_tag 'profile[favorite_store_ids][]', favorite_store.id,
+				current_user.profile.favorite_store_ids.include?(favorite_store.id), id: dom_id(favorite_store) %>
+				<%= label_tag dom_id(favorite_store), favorite_store.name, class: "check_box_label" %>
+				<% end %> </td>
+			</tr>
 
 		</table>
 	</section>
-	
+
 </section>
 
 <section id="profile_button">
@@ -159,3 +171,6 @@
 </section>
 
 <% end %>
+<section>
+	<p><%= current_user.id%></p>
+</section>

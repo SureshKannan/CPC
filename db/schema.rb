@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140325153933) do
+ActiveRecord::Schema.define(version: 20140327001623) do
+
+  create_table "favorite_store_profiles", id: false, force: true do |t|
+    t.integer "favorite_store_id"
+    t.integer "profile_id"
+  end
 
   create_table "favorite_stores", force: true do |t|
     t.string   "name"
@@ -24,6 +29,11 @@ ActiveRecord::Schema.define(version: 20140325153933) do
     t.integer "user_id"
   end
 
+  create_table "interest_profiles", id: false, force: true do |t|
+    t.integer "interest_id"
+    t.integer "profile_id"
+  end
+
   create_table "interests", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -33,6 +43,11 @@ ActiveRecord::Schema.define(version: 20140325153933) do
   create_table "interests_users", id: false, force: true do |t|
     t.integer "interest_id"
     t.integer "user_id"
+  end
+
+  create_table "profile_send_mails", id: false, force: true do |t|
+    t.integer "send_email_id"
+    t.integer "profile_id"
   end
 
   create_table "profiles", force: true do |t|

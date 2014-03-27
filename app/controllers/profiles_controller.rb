@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :load_user,:set_profile, only: [:show, :edit, :update, :destroy]
+  
   layout 'registrations' 
   # GET /profiles
   # GET /profiles.json
@@ -14,20 +15,24 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/new
   def new
-    @profile = Profile.new
+    
+    #@profile = Profile.new
+    current_user.profile = Profile.new
   end
 
   # GET /profiles/1/edit
   def edit
+    
   end
 
   # POST /profiles
   # POST /profiles.json
   def create
     @profile = Profile.new(profile_params)
-
+    @u.interests=(params{interest})
     respond_to do |format|
       if @profile.save
+        
         format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
         format.json { render action: 'show', status: :created, location: @profile }
       else
@@ -64,11 +69,19 @@ class ProfilesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
-      @profile = Profile.find(params[:id])
+      @profile = current_user.profile
+      #@profile = Profile.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params[:profile]
+     params.require(:profile).permit(:firstName, :lastName, :aptNo, :street, :city, :province, :country, 
+      :postalcode, :phoneNumber, :cellphone, :gender, :birthday,:ethncity, :maritalStatus, :carrier, 
+      :interest_ids =>[], :send_email_ids => [], :favorite_store_ids => [
+        
+      ])
+    end
+    def load_user
+      @user = current_user
     end
 end

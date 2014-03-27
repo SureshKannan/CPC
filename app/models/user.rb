@@ -14,11 +14,10 @@ class User < ActiveRecord::Base
       where(conditions).first
     end
   end
-has_one :profile
-has_and_belongs_to_many :interests
-has_and_belongs_to_many :favorite_stores
-has_and_belongs_to_many :send_emails
-#has_many :interests, :through => :profile
-#has_many :favorite_stores, :through => :profile
+has_one :profile, :autosave => true
+
+has_many :interests, :through => :profile
+has_many :favorite_stores, :through => :profile
+
 
 end
