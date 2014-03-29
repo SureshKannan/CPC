@@ -18,6 +18,7 @@ has_one :profile, :autosave => true
 
 has_many :interests, :through => :profile
 has_many :favorite_stores, :through => :profile
+has_many :send_emails, :through => :profile
 
 
 end

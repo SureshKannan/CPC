@@ -10,13 +10,12 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
     render :layout => 'popup'
   end
 
-  def after_sign_in_path_for(resource_or_scope)
+def thankyou
+  
+end
 
-    '/my_devise/sessions/thankyou'
-
-  end
-
-  def after_sign_up_path_for(resource_or_scope)
+private
+ def after_inactive_sign_up_path_for(resource)
 
     '/my_devise/sessions/thankyou'
 
