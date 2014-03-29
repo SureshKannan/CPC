@@ -1,10 +1,10 @@
-<%= form_for(current_user.profile) do |f| %>
-<% if current_user.profile.errors.any? %>
+<%= form_for(@profile) do |f| %>
+<% if @profile.errors.any? %>
 <div id="error_explanation">
-	<h2><%= pluralize(current_user.profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+	<h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
 
 	<ul>
-		<% current_user.profile.errors.full_messages.each do |msg| %>
+		<% @profile.errors.full_messages.each do |msg| %>
 		<li>
 			<%= msg %>
 		</li>
@@ -92,7 +92,7 @@
 				
 				<% SendEmail.all.each do |send_email|%>
 				<%= check_box_tag 'profile[send_email_ids][]', send_email.id,
-				current_user.profile.send_email_ids.include?(send_email.id), id: dom_id(send_email) %>
+				@profile.send_email_ids.include?(send_email.id), id: dom_id(send_email) %>
 				<%= label_tag dom_id(send_email), send_email.name, class: "check_box_label" %>
 				<% end %> </td>
 			</tr>
@@ -144,7 +144,7 @@
 				
 				<% Interest.all.each do |interest|%>
 				<%= check_box_tag 'profile[interest_ids][]', interest.id,
-				current_user.profile.interest_ids.include?(interest.id), id: dom_id(interest) %>
+				@profile.interest_ids.include?(interest.id), id: dom_id(interest) %>
 				<%= label_tag dom_id(interest), interest.name, class: "check_box_label" %>
 				<% end %> </td>
 			</tr>
@@ -154,7 +154,7 @@
 				<br />
 				<% FavoriteStore.all.each do |favorite_store|%>
 				<%= check_box_tag 'profile[favorite_store_ids][]', favorite_store.id,
-				current_user.profile.favorite_store_ids.include?(favorite_store.id), id: dom_id(favorite_store) %>
+				@profile.favorite_store_ids.include?(favorite_store.id), id: dom_id(favorite_store) %>
 				<%= label_tag dom_id(favorite_store), favorite_store.name, class: "check_box_label" %>
 				<% end %> </td>
 			</tr>

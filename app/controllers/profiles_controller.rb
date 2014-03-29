@@ -16,24 +16,25 @@ class ProfilesController < ApplicationController
   # GET /profiles/new
   def new
     
-    #@profile = Profile.new
-    current_user.profile = Profile.new
+    @profile = Profile.new
+    #current_user.profile = Profile.new
   end
 
   # GET /profiles/1/edit
   def edit
-    
+   
   end
 
   # POST /profiles
   # POST /profiles.json
   def create
     @profile = Profile.new(profile_params)
-    @u.interests=(params{interest})
+    current_user.profile = @profile
+    
     respond_to do |format|
-      if @profile.save
+      if current_user.profile.save
         
-        format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
+        format.html { redirect_to controller: 'home', action: 'index' , notice: 'Profile was successfully created.' }
         format.json { render action: 'show', status: :created, location: @profile }
       else
         format.html { render action: 'new' }
