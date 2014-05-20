@@ -13,24 +13,14 @@
 
 ActiveRecord::Schema.define(version: 20140327001623) do
 
-  create_table "favorite_store_profiles", id: false, force: true do |t|
-    t.integer "favorite_store_id"
-    t.integer "profile_id"
-  end
-
   create_table "favorite_stores", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "favorite_stores_users", id: false, force: true do |t|
+  create_table "favorite_stores_profiles", id: false, force: true do |t|
     t.integer "favorite_store_id"
-    t.integer "user_id"
-  end
-
-  create_table "interest_profiles", id: false, force: true do |t|
-    t.integer "interest_id"
     t.integer "profile_id"
   end
 
@@ -40,13 +30,8 @@ ActiveRecord::Schema.define(version: 20140327001623) do
     t.datetime "updated_at"
   end
 
-  create_table "interests_users", id: false, force: true do |t|
+  create_table "interests_profiles", id: false, force: true do |t|
     t.integer "interest_id"
-    t.integer "user_id"
-  end
-
-  create_table "profile_send_mails", id: false, force: true do |t|
-    t.integer "send_email_id"
     t.integer "profile_id"
   end
 
@@ -71,15 +56,15 @@ ActiveRecord::Schema.define(version: 20140327001623) do
     t.datetime "updated_at"
   end
 
+  create_table "profiles_send_mails", id: false, force: true do |t|
+    t.integer "send_email_id"
+    t.integer "profile_id"
+  end
+
   create_table "send_emails", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "send_emails_users", id: false, force: true do |t|
-    t.integer "send_email_id"
-    t.integer "user_id"
   end
 
   create_table "users", force: true do |t|
@@ -93,16 +78,11 @@ ActiveRecord::Schema.define(version: 20140327001623) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
